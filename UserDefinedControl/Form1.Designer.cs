@@ -55,6 +55,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.plcIndicatorLightControl3 = new UserDefinedControl.PlcIndicatorLightControl();
+            this.plcIndicatorLightControl2 = new UserDefinedControl.PlcIndicatorLightControl();
+            this.plcIndicatorLightControl1 = new UserDefinedControl.PlcIndicatorLightControl();
+            this.plcComboBoxControl1 = new UserDefinedControl.PlcComboBoxControl();
             this.buttonControl4 = new UserDefinedControl.ButtonControl();
             this.buttonControl3 = new UserDefinedControl.ButtonControl();
             this.buttonControl2 = new UserDefinedControl.ButtonControl();
@@ -113,6 +117,10 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.plcIndicatorLightControl3);
+            this.tabPage1.Controls.Add(this.plcIndicatorLightControl2);
+            this.tabPage1.Controls.Add(this.plcIndicatorLightControl1);
+            this.tabPage1.Controls.Add(this.plcComboBoxControl1);
             this.tabPage1.Controls.Add(this.txtFlow2);
             this.tabPage1.Controls.Add(this.txtFlow1);
             this.tabPage1.Controls.Add(this.button1);
@@ -129,6 +137,7 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "示例";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // txtFlow2
             // 
@@ -416,6 +425,114 @@
             this.label1.TabIndex = 27;
             this.label1.Text = "2#";
             // 
+            // plcIndicatorLightControl3
+            // 
+            this.plcIndicatorLightControl3.BackColor = System.Drawing.Color.Transparent;
+            this.plcIndicatorLightControl3.ColorFalse = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.plcIndicatorLightControl3.ColorTrue = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(205)))), ((int)(((byte)(50)))));
+            this.plcIndicatorLightControl3.CurrentBoolValue = false;
+            this.plcIndicatorLightControl3.CurrentShortValue = ((short)(0));
+            this.plcIndicatorLightControl3.DataType = UserDefinedControl.PlcDataType.Short;
+            this.plcIndicatorLightControl3.EnablePlcComm = true;
+            this.plcIndicatorLightControl3.LightRadius = 12;
+            this.plcIndicatorLightControl3.Location = new System.Drawing.Point(717, 399);
+            this.plcIndicatorLightControl3.Name = "plcIndicatorLightControl3";
+            this.plcIndicatorLightControl3.ReadBoolAddressMethod = null;
+            this.plcIndicatorLightControl3.ReadShortAddressMethod = null;
+            this.plcIndicatorLightControl3.Size = new System.Drawing.Size(30, 30);
+            this.plcIndicatorLightControl3.StateColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(205)))), ((int)(((byte)(50))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(20)))), ((int)(((byte)(60)))))};
+            this.plcIndicatorLightControl3.StateValues = new short[] {
+        ((short)(0)),
+        ((short)(1)),
+        ((short)(2))};
+            this.plcIndicatorLightControl3.TabIndex = 24;
+            this.plcIndicatorLightControl3.ValueAddress = "";
+            // 
+            // plcIndicatorLightControl2
+            // 
+            this.plcIndicatorLightControl2.BackColor = System.Drawing.Color.Transparent;
+            this.plcIndicatorLightControl2.ColorFalse = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.plcIndicatorLightControl2.ColorTrue = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(205)))), ((int)(((byte)(50)))));
+            this.plcIndicatorLightControl2.CurrentBoolValue = false;
+            this.plcIndicatorLightControl2.CurrentShortValue = ((short)(0));
+            this.plcIndicatorLightControl2.DataType = UserDefinedControl.PlcDataType.Bool;
+            this.plcIndicatorLightControl2.EnablePlcComm = true;
+            this.plcIndicatorLightControl2.LightRadius = 12;
+            this.plcIndicatorLightControl2.Location = new System.Drawing.Point(658, 399);
+            this.plcIndicatorLightControl2.Name = "plcIndicatorLightControl2";
+            this.plcIndicatorLightControl2.ReadBoolAddressMethod = null;
+            this.plcIndicatorLightControl2.ReadShortAddressMethod = null;
+            this.plcIndicatorLightControl2.Size = new System.Drawing.Size(30, 30);
+            this.plcIndicatorLightControl2.StateColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(205)))), ((int)(((byte)(50))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(20)))), ((int)(((byte)(60)))))};
+            this.plcIndicatorLightControl2.StateValues = new short[] {
+        ((short)(0)),
+        ((short)(1)),
+        ((short)(2))};
+            this.plcIndicatorLightControl2.TabIndex = 23;
+            this.plcIndicatorLightControl2.ValueAddress = "";
+            // 
+            // plcIndicatorLightControl1
+            // 
+            this.plcIndicatorLightControl1.BackColor = System.Drawing.Color.Transparent;
+            this.plcIndicatorLightControl1.ColorFalse = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.plcIndicatorLightControl1.ColorTrue = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(205)))), ((int)(((byte)(50)))));
+            this.plcIndicatorLightControl1.CurrentBoolValue = false;
+            this.plcIndicatorLightControl1.CurrentShortValue = ((short)(0));
+            this.plcIndicatorLightControl1.DataType = UserDefinedControl.PlcDataType.Bool;
+            this.plcIndicatorLightControl1.EnablePlcComm = true;
+            this.plcIndicatorLightControl1.LightRadius = 12;
+            this.plcIndicatorLightControl1.Location = new System.Drawing.Point(0, 0);
+            this.plcIndicatorLightControl1.Name = "plcIndicatorLightControl1";
+            this.plcIndicatorLightControl1.ReadBoolAddressMethod = null;
+            this.plcIndicatorLightControl1.ReadShortAddressMethod = null;
+            this.plcIndicatorLightControl1.Size = new System.Drawing.Size(30, 30);
+            this.plcIndicatorLightControl1.StateColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(128))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(205)))), ((int)(((byte)(50))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(20)))), ((int)(((byte)(60)))))};
+            this.plcIndicatorLightControl1.StateValues = new short[] {
+        ((short)(0)),
+        ((short)(1)),
+        ((short)(2))};
+            this.plcIndicatorLightControl1.TabIndex = 0;
+            this.plcIndicatorLightControl1.ValueAddress = "";
+            // 
+            // plcComboBoxControl1
+            // 
+            this.plcComboBoxControl1.BackColor = System.Drawing.Color.Transparent;
+            this.plcComboBoxControl1.BorderColor = System.Drawing.Color.Gray;
+            this.plcComboBoxControl1.BoxBackColor = System.Drawing.Color.LightSteelBlue;
+            this.plcComboBoxControl1.ButtonRadius = 5;
+            this.plcComboBoxControl1.CurrentValue = ((short)(0));
+            this.plcComboBoxControl1.DropdownBackColor = System.Drawing.Color.White;
+            this.plcComboBoxControl1.DropdownHoverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(149)))), ((int)(((byte)(237)))));
+            this.plcComboBoxControl1.DropdownHoverTextColor = System.Drawing.Color.White;
+            this.plcComboBoxControl1.EnablePlcComm = true;
+            this.plcComboBoxControl1.Font = new System.Drawing.Font("微软雅黑", 10F);
+            this.plcComboBoxControl1.HoverBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(149)))), ((int)(((byte)(237)))));
+            this.plcComboBoxControl1.ItemNames = new string[] {
+        "手动",
+        "自动",
+        "停止"};
+            this.plcComboBoxControl1.ItemValues = new short[] {
+        ((short)(0)),
+        ((short)(1)),
+        ((short)(2))};
+            this.plcComboBoxControl1.Location = new System.Drawing.Point(492, 367);
+            this.plcComboBoxControl1.Name = "plcComboBoxControl1";
+            this.plcComboBoxControl1.ReadShortAddressMethod = null;
+            this.plcComboBoxControl1.Size = new System.Drawing.Size(120, 35);
+            this.plcComboBoxControl1.TabIndex = 22;
+            this.plcComboBoxControl1.TextColor = System.Drawing.Color.Black;
+            this.plcComboBoxControl1.ValueAddress = "";
+            this.plcComboBoxControl1.WriteShortAddressMethod = null;
+            // 
             // buttonControl4
             // 
             this.buttonControl4.BackColor = System.Drawing.Color.Transparent;
@@ -533,7 +650,7 @@
             this.numericInputControl2.FeedbackBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.numericInputControl2.FeedbackTextColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.numericInputControl2.Font = new System.Drawing.Font("微软雅黑", 9F);
-            this.numericInputControl2.Location = new System.Drawing.Point(277, 367);
+            this.numericInputControl2.Location = new System.Drawing.Point(170, 342);
             this.numericInputControl2.MaxValue = 100D;
             this.numericInputControl2.MinValue = 0D;
             this.numericInputControl2.Name = "numericInputControl2";
@@ -1505,5 +1622,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtFlow2;
         private System.Windows.Forms.TextBox txtFlow1;
+        private PlcComboBoxControl plcComboBoxControl1;
+        private PlcIndicatorLightControl plcIndicatorLightControl1;
+        private PlcIndicatorLightControl plcIndicatorLightControl2;
+        private PlcIndicatorLightControl plcIndicatorLightControl3;
     }
 }

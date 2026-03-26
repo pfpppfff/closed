@@ -107,6 +107,18 @@
     <Compile Include="OPCUA\OpcUaServiceManager.cs" />
     <Compile Include="OPCUA\PlcStatusChangedEventArgs.cs" />
     <Compile Include="OPCUA\PlcStatusModel.cs" />
+    <Compile Include="PlcComboBoxControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlcComboBoxControl.Designer.cs">
+      <DependentUpon>PlcComboBoxControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PlcIndicatorLightControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PlcIndicatorLightControl.Designer.cs">
+      <DependentUpon>PlcIndicatorLightControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

@@ -54,6 +54,14 @@ namespace UserDefinedControl
             SetupButtonControl(buttonControl4, "1214.PLC1.Val.Switch.item1.SwitchVal_Open");
             SetupButtonControl(buttonControl3, "1214.PLC1.Val.Switch.item1.SwitchVal_Open");
 
+            //
+            SetupPlcComboBox(plcComboBoxControl1, "1214.PLC1.PowerCtrl.Motor.item1.PC_PowerSel", new string[] { "天下", "人", "好" }, new short[] { 3, 5, 8 }, true);
+
+
+            //
+            SetupBoolLight(plcIndicatorLightControl2, "1214.PLC1.Val.Switch.item1.SwitchVal_Open");
+            SetupBoolLight(plcIndicatorLightControl3, "1214.PLC1.PowerCtrl.Motor.item1.PC_PowerSel");
+
             // 为每个控件设置真实PLC地址和委托方法
             SetupIndicatorButton(indicatorButton1, "1214.PLC1.ADDR_BTN1", "1214.PLC1.SIGNAL_A1", "1214.PLC1.SIGNAL_B1");
             SetupIndicatorButton(indicatorButton2, "1214.PLC1.ADDR_BTN2", "1214.PLC1.SIGNAL_A2", "1214.PLC1.SIGNAL_B2");
@@ -526,7 +534,80 @@ namespace UserDefinedControl
             control.WriteAddressMethod = MyS7Connect_WriteBoolAsync;
             control.ReadAddressMethod = MyS7Connect_ReadBoolAsync;
         }
-        
+
+
+        private void SetupPlcComboBox(PlcComboBoxControl control, string valueAddress, string[] itemNames, short[] itemValues, bool enablePlc = true)
+        {
+            // 1. 设置读写地址
+            control.ValueAddress = valueAddress;
+
+            // 2. 传入配置的 int 数组 和 对应字符串的数组
+            control.ItemNames = itemNames;
+            control.ItemValues = itemValues;
+
+            // 3. 通讯使能
+            control.EnablePlcComm = enablePlc;
+
+            // 4. 绑定您的实际异步读写方法 (需提供 Int 读写方法)
+            // 假设你有 MyS7Connect_WriteIntAsync 和 MyS7Connect_ReadIntAsync
+            control.WriteShortAddressMethod = MyS7Connect_WriteIntAsync;
+            control.ReadShortAddressMethod = MyS7Connect_ReadIntAsync;
+        }
+
+        private void SetupBoolLight(PlcIndicatorLightControl light, string address)
+        {
+            // 1. 设置为 Bool 模式
+            //light.DataType = PlcDataType.Bool;
+
+            // 2. 配置名称和读写地址
+          
+            light.ValueAddress = address;
+
+            // 3. 配置颜色：True 显示绿色，False 显示灰色
+            light.ColorTrue = Color.LimeGreen;
+            light.ColorFalse = Color.Gray;
+
+            light.StateValues = new short[] { 0, 1, 2, 3 };
+            light.StateColors = new Color[]
+            {
+                Color.Gray,       // 对应 0
+                Color.LimeGreen,  // 对应 1
+                Color.Crimson,    // 对应 2 (红色)
+                Color.Gold        // 对应 3 (黄色)
+            };
+
+            // 4. 绑定 Bool 读方法
+            light.ReadBoolAddressMethod = MyS7Connect_ReadBoolAsync;
+            light.ReadShortAddressMethod = MyS7Connect_ReadIntAsync;
+            light.EnablePlcComm = true;
+        }
+
+        private void SetupIntLight(PlcIndicatorLightControl light, string address)
+        {
+            // 1. 设置为 Int 模式
+            light.DataType = PlcDataType.Bool;
+
+            // 2. 配置名称和读写地址
+       
+            light.ValueAddress = address;
+
+            // 3. 核心配置：定义多个整型值，以及它们对应的颜色
+            // 比如：0=停机(灰色)，1=运行(绿色)，2=报警(红色)，3=待机(黄色)
+            light.StateValues = new short[] { 0, 1, 2, 3 };
+            light.StateColors = new Color[]
+            {
+                Color.Gray,       // 对应 0
+                Color.LimeGreen,  // 对应 1
+                Color.Crimson,    // 对应 2 (红色)
+                Color.Gold        // 对应 3 (黄色)
+            };
+
+            // 4. 绑定 Int 读取方法
+            light.ReadShortAddressMethod = MyS7Connect_ReadIntAsync;
+            light.EnablePlcComm = true;
+        }
+
+
         /// <summary>
         /// 设置数值输入控件的委托方法
         /// </summary>
@@ -913,6 +994,11 @@ namespace UserDefinedControl
             //        _logTextBox.Lines = lines;
             //    }
             //});
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
